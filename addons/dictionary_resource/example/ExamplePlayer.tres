@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DictionaryResource" load_steps=2 format=3 uid="uid://cuevosbbdwj62"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/dictionary_resource.gd" id="1_aod2s"]
+
+[resource]
+script = ExtResource("1_aod2s")
