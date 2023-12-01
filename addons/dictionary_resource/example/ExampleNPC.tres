@@ -9,3 +9,4 @@ type_hints = ExtResource("2_v6r6k")
 is_player = null
 jump_height = null
 speed = null
+head_offset = null
