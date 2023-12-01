@@ -4,7 +4,7 @@ class_name DictionaryResource extends Resource
 # Dictionary of strings to the type of its value
 @export var type_hints: BasicDictionaryResource
 
-@export var store: Dictionary
+var store: Dictionary
 
 
 func _get_property_list() -> Array[Dictionary]:
