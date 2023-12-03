@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="BasicDictionaryResource" load_steps=2 format=3 uid="uid://dgb0nfjaj4s7k"]
+[gd_resource type="Resource" script_class="TypeHintResource" load_steps=2 format=3 uid="uid://blv8wcjxp1j5m"]
 
-[ext_resource type="Script" path="res://addons/dictionary_resource/basic_dictionary_resource.gd" id="1_eiawb"]
+[ext_resource type="Script" path="res://addons/dictionary_resource/type_hint_resource.gd" id="1_0bs54"]
 
 [resource]
-script = ExtResource("1_eiawb")
-value = {
-"head_offset": Vector3(0, 0, 0),
-"is_player": false,
-"jump_height": 2.08167e-12,
-"speed": 2.08167e-12
+script = ExtResource("1_0bs54")
+_store = {
+"head_offset": Vector3(2.08167e-12, 1.2, 0.1),
+"jump_height": 12.0,
+"run_speed": 1.2,
+"walk_speed": 0.5
 }

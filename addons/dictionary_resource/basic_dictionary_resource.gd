@@ -1,74 +1,102 @@
+@tool
 class_name BasicDictionaryResource extends Resource
 
-@export var _dict: Dictionary
+var _display_internal_store: bool = true:
+	set(val):
+		_display_internal_store = val
+		# notify_property_list_changed.call_deferred()
+		notify_property_list_changed()
+
+var _store: Dictionary = {}
 
 
-func _init(seed: Dictionary) -> void:
-	_dict = seed
+func _get_property_list() -> Array:
+	var store_property_usage = PROPERTY_USAGE_NO_EDITOR
+	if _display_internal_store:
+		store_property_usage = PROPERTY_USAGE_DEFAULT
+
+	var properties = []
+	(
+		properties
+		. append(
+			{
+				"name": "_store",
+				"type": TYPE_DICTIONARY,
+				"usage": store_property_usage,  # See above assignment.
+				"hint": PROPERTY_HINT_NONE,
+			}
+		)
+	)
+	return properties
 
 
 func clear() -> void:
-	_dict.clear()
+	_store.clear()
 
 
-# Dictionary duplicate ( bool deep=false ) const
 func duplicate(deep: bool = false) -> BasicDictionaryResource:
-	return BasicDictionaryResource.new(_dict.duplicate(deep))
+	var dict = BasicDictionaryResource.new()
+	dict._store = _store.duplicate(deep)
+	return dict
 
 
 func erase(key: Variant) -> bool:
-	return _dict.erase(key)
+	return _store.erase(key)
 
 
 func find_key(value: Variant) -> Variant:
-	return _dict.find_key(value)
+	return _store.find_key(value)
 
 
 # There's no operator overrides in GDScript.
 func put(key: Variant, value: Variant) -> void:
-	_dict[key] = value
+	_store[key] = value
 
 
-func get(key: Variant, default: Variant = null) -> Variant:
-	return _dict.get(key, default)
+# why is this differnt than the array access operator
+func get(key: Variant = null, default: Variant = null) -> Variant:
+	return _store.get(key, default)
 
 
 func has(key: Variant) -> bool:
-	return _dict.has(key)
+	return _store.has(key)
 
 
 func has_all(keys: Array[Variant]) -> bool:
-	return _dict.has_all(keys)
+	return _store.has_all(keys)
 
 
 func hash() -> int:
-	return _dict.hash()
+	return _store.hash()
 
 
 func is_empty() -> bool:
-	return _dict.is_empty()
+	return _store.is_empty()
 
 
-# bool is_read_only ( ) const
 func is_read_only() -> bool:
-	return _dict.is_read_only()
+	return _store.is_read_only()
 
 
 func keys() -> Array:
-	return _dict.keys()
+	return _store.keys()
+
+
+func get_keys() -> Array:
+	return _store.keys()
 
 
 func make_read_only() -> void:
-	_dict.make_read_only()
+	_store.make_read_only()
 
 
 func merge(dictionary: Dictionary, overwrite: bool = false) -> void:
-	return _dict.merge(dictionary, overwrite)
+	return _store.merge(dictionary, overwrite)
 
 
 func size() -> int:
-	return _dict.size()
+	return _store.size()
 
 
-func values() -> Array:
-	return _dict.values()
+func values() -> Array[Variant]:
+	return _store.values()
