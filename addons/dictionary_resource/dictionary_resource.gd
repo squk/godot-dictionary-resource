@@ -7,8 +7,10 @@ var type_hints: TypeHintResource:
 		type_hints = val
 		notify_property_list_changed()
 
+var _display_type_hints := true
 
-func _ready():
+
+func _ready() -> void:
 	# By default, BasicDictionaryResource shows it's internal dictionary. Disable it.
 	self.export_store = false
 	notify_property_list_changed()
@@ -28,7 +30,7 @@ func _get_property_list() -> Array:
 			"value": type_hints,
 			"hint": PROPERTY_HINT_RESOURCE_TYPE,
 			"hint_string": "TypeHintResource",
-			"usage": PROPERTY_USAGE_DEFAULT,
+			"usage": PROPERTY_USAGE_DEFAULT if _display_type_hints else PROPERTY_USAGE_NO_EDITOR,
 		},
 		{
 			"name": "_display_internal_store",
@@ -75,12 +77,13 @@ func build_entry(typename: Variant) -> Dictionary:
 func _set(prop_name: StringName, val: Variant) -> bool:
 	if prop_name == "_display_internal_store":
 		_display_internal_store - val
+		notify_property_list_changed()
 	elif prop_name == "type_hints":
 		type_hints = val
+		notify_property_list_changed()
 	else:
 		self.put(prop_name, val)  # already encoded w/ var_to_str
 
-	notify_property_list_changed()
 	return true
 
 

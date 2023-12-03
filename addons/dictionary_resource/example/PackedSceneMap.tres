@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="MultiDictionaryResource" load_steps=10 format=3 uid="uid://bnivckpx3dr2i"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/dictionary_resource.gd" id="1_dx0m2"]
+[ext_resource type="Resource" uid="uid://dowp6fmcwe5en" path="res://addons/dictionary_resource/example/ExampleNPC.tres" id="1_m07hf"]
+[ext_resource type="Script" path="res://addons/dictionary_resource/multi_dictionary_resource.gd" id="1_wnnpc"]
+[ext_resource type="Script" path="res://addons/dictionary_resource/type_hint_resource.gd" id="3_odllt"]
+[ext_resource type="Resource" uid="uid://cuevosbbdwj62" path="res://addons/dictionary_resource/example/ExamplePlayer.tres" id="4_5mhw1"]
+
+[sub_resource type="Resource" id="Resource_lmdbl"]
+
+[sub_resource type="Resource" id="Resource_p3ass"]
+script = ExtResource("3_odllt")
+_store = {
+"name": "DefaultName",
+"resource": SubResource("Resource_lmdbl")
+}
+
+[sub_resource type="Resource" id="Resource_jvr2o"]
+script = ExtResource("1_dx0m2")
+type_hints = SubResource("Resource_p3ass")
+_display_internal_store = true
+name = "Named NPC"
+resource = ExtResource("1_m07hf")
+_store = {
+"export_store": false,
+"name": "Named NPC",
+"resource": ExtResource("1_m07hf")
+}
+
+[sub_resource type="Resource" id="Resource_75j2g"]
+script = ExtResource("1_dx0m2")
+type_hints = SubResource("Resource_p3ass")
+_display_internal_store = true
+name = "Named Player"
+resource = ExtResource("4_5mhw1")
+_store = {
+"export_store": false,
+"name": "Named Player",
+"resource": ExtResource("4_5mhw1")
+}
+
+[resource]
+script = ExtResource("1_wnnpc")
+type_hints = SubResource("Resource_p3ass")
+resources = Array[ExtResource("1_dx0m2")]([SubResource("Resource_jvr2o"), SubResource("Resource_75j2g")])
