@@ -54,8 +54,8 @@ func put(key: Variant, value: Variant) -> void:
 
 
 # why is this differnt than the array access operator
-func get(key: Variant = null, default: Variant = null) -> Variant:
-	return _store.get(key, default)
+func at(key: Variant = null, default: Variant = null) -> Variant:
+	return default if not _store.has(key) else _store[key]
 
 
 func has(key: Variant) -> bool:

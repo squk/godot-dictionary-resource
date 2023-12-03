@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="DictionaryResource" load_steps=8 format=3 uid="uid://c0gbdx2ta6blt"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/dictionary_resource.gd" id="1_jirq5"]
+[ext_resource type="Resource" uid="uid://8va3wpjemrme" path="res://addons/dictionary_resource/example/nested/NestedTypeHints.tres" id="2_66jow"]
+[ext_resource type="Script" path="res://addons/dictionary_resource/type_hint_resource.gd" id="2_o75tp"]
+
+[sub_resource type="Resource" id="Resource_asjdg"]
+script = ExtResource("2_o75tp")
+_store = {
+"preferred_name": "blank",
+"real_name": "blank"
+}
+
+[sub_resource type="Resource" id="Resource_1ouwu"]
+script = ExtResource("1_jirq5")
+type_hints = SubResource("Resource_asjdg")
+_display_internal_store = false
+_store = {
+"preferred_name": "Goldie",
+"real_name": "Gold"
+}
+
+[sub_resource type="Resource" id="Resource_iyb0g"]
+script = ExtResource("1_jirq5")
+type_hints = SubResource("Resource_asjdg")
+_display_internal_store = false
+_store = {
+"preferred_name": "Silvie",
+"real_name": "Silver"
+}
+
+[sub_resource type="Resource" id="Resource_12j8n"]
+script = ExtResource("1_jirq5")
+type_hints = SubResource("Resource_asjdg")
+_display_internal_store = false
+_store = {
+"preferred_name": "Bubba Gump",
+"real_name": "Gimli"
+}
+
+[resource]
+script = ExtResource("1_jirq5")
+type_hints = ExtResource("2_66jow")
+_display_internal_store = false
+_store = {
+"children": PackedStringArray("Gold", "Silver", "Gimli"),
+"name": "Christian",
+"nicknames": [SubResource("Resource_1ouwu"), SubResource("Resource_iyb0g"), SubResource("Resource_12j8n")]
+}

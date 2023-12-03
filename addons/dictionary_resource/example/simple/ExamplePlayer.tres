@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DictionaryResource" load_steps=3 format=3 uid="uid://cuevosbbdwj62"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/dictionary_resource.gd" id="1_t6o2y"]
+[ext_resource type="Resource" uid="uid://blv8wcjxp1j5m" path="res://addons/dictionary_resource/example/simple/ExampleTypeHints.tres" id="2_hqiw2"]
+
+[resource]
+script = ExtResource("1_t6o2y")
+type_hints = ExtResource("2_hqiw2")
+_display_internal_store = false
+head_offset = Vector3(2.08165e-12, 1, 2.08165e-12)
+jump_height = 5.0
+run_speed = 1.6
+walk_speed = 1.1
+_store = {
+"head_offset": Vector3(2.08165e-12, 1, 2.08165e-12),
+"jump_height": 5.0,
+"run_speed": 1.6,
+"walk_speed": 1.1
+}
