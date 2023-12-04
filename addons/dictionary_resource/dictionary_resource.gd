@@ -22,7 +22,7 @@ func _get_property_list() -> Array:
 			"name": "Type Hints",
 			"type": TYPE_STRING,
 			"hint": PROPERTY_HINT_NONE,
-			"usage": PROPERTY_USAGE_CATEGORY,
+			"usage": PROPERTY_USAGE_CATEGORY if _display_type_hints else PROPERTY_USAGE_NO_EDITOR,
 		},
 		{
 			"name": "type_hints",
@@ -40,7 +40,7 @@ func _get_property_list() -> Array:
 			PROPERTY_USAGE_DEFAULT if _display_internal_store_toggle else PROPERTY_USAGE_NO_EDITOR,
 		},
 		{
-			"name": "Dictionary Entries",
+			"name": "Dictionary Resource Value",
 			"type": TYPE_STRING,
 			"hint": PROPERTY_HINT_NONE,
 			"usage": PROPERTY_USAGE_CATEGORY,
@@ -107,7 +107,6 @@ func _set(prop_name: StringName, val: Variant) -> bool:
 				v._display_internal_store = false
 				v._display_internal_store_toggle = false
 		if val is DictionaryResource:
-			print("DictionaryResource ", prop_name)
 			var nested_hints = type_hints.at(prop_name)
 			if not nested_hints is TypeHintResource:
 				push_error("Expected TypeHintResource for %s, but got : " % prop_name, nested_hints)

@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="DictionaryResource" load_steps=10 format=3 uid="uid://bq4fmp5n3u16e"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/dictionary_resource.gd" id="1_7xqhj"]
+[ext_resource type="Script" path="res://addons/dictionary_resource/type_hint_resource.gd" id="2_7hroh"]
+[ext_resource type="Resource" uid="uid://b45bi7258hpsk" path="res://addons/dictionary_resource/example/pokemon/PokemonTypeHints.tres" id="3_nqykc"]
+
+[sub_resource type="Resource" id="Resource_4ch8w"]
+script = ExtResource("2_7hroh")
+_store = {
+"Attack": 0,
+"Defense": 0.0,
+"HP": 0,
+"Sp. Attack": 0,
+"Sp. Defense": 0,
+"Speed": 0
+}
+
+[sub_resource type="Resource" id="Resource_hyrid"]
+script = ExtResource("1_7xqhj")
+type_hints = SubResource("Resource_4ch8w")
+_display_internal_store = false
+_store = {
+"Attack": 39,
+"Defense": 52.0,
+"HP": 43,
+"Sp. Attack": 60,
+"Sp. Defense": 50,
+"Speed": 65
+}
+
+[sub_resource type="Resource" id="Resource_a41dy"]
+script = ExtResource("2_7hroh")
+_store = {
+"at_level": 0,
+"next_id": 0
+}
+
+[sub_resource type="Resource" id="Resource_o5x0b"]
+script = ExtResource("1_7xqhj")
+type_hints = SubResource("Resource_a41dy")
+_display_internal_store = false
+_store = {
+"at_level": 16,
+"next_id": 5
+}
+
+[sub_resource type="Resource" id="Resource_toahs"]
+script = ExtResource("2_7hroh")
+_store = {
+"english": "blank",
+"japanese": "blanku"
+}
+
+[sub_resource type="Resource" id="Resource_n3bnk"]
+script = ExtResource("1_7xqhj")
+type_hints = SubResource("Resource_toahs")
+_display_internal_store = false
+_store = {
+"english": "Charmander",
+"japanese": "ヒトカゲ"
+}
+
+[resource]
+script = ExtResource("1_7xqhj")
+type_hints = ExtResource("3_nqykc")
+_display_internal_store = false
+_store = {
+"base_stats": SubResource("Resource_hyrid"),
+"evolution": SubResource("Resource_o5x0b"),
+"gender": "87.5:12.5",
+"id": 4,
+"name": SubResource("Resource_n3bnk"),
+"type": PackedStringArray("Fire")
+}

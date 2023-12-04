@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="TypeHintResource" load_steps=5 format=3 uid="uid://b45bi7258hpsk"]
+
+[ext_resource type="Script" path="res://addons/dictionary_resource/type_hint_resource.gd" id="1_p5wqa"]
+
+[sub_resource type="Resource" id="Resource_4ch8w"]
+script = ExtResource("1_p5wqa")
+_store = {
+"Attack": 0,
+"Defense": 0.0,
+"HP": 0,
+"Sp. Attack": 0,
+"Sp. Defense": 0,
+"Speed": 0
+}
+
+[sub_resource type="Resource" id="Resource_a41dy"]
+script = ExtResource("1_p5wqa")
+_store = {
+"at_level": 0,
+"next_id": 0
+}
+
+[sub_resource type="Resource" id="Resource_toahs"]
+script = ExtResource("1_p5wqa")
+_store = {
+"english": "blank",
+"japanese": "blanku"
+}
+
+[resource]
+script = ExtResource("1_p5wqa")
+_store = {
+"base_stats": SubResource("Resource_4ch8w"),
+"evolution": SubResource("Resource_a41dy"),
+"gender": "blank",
+"id": 0,
+"name": SubResource("Resource_toahs"),
+"type": PackedStringArray()
+}
