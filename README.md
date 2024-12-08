@@ -1,6 +1,11 @@
 # godot-dictionary-resource
 Abstract Dictionary resource with proper typing in the editor.
 
+UPDATE: 2024-12-05
+![image](https://github.com/user-attachments/assets/955f3256-87e7-4669-9f8b-729a905a778e)
+This is no longer needed as of [Godot 4.4](https://godotengine.org/article/dev-snapshot-godot-4-4-dev-2/).
+
+
 # Classes
  - `BasicDictionaryResource` - Base class of all other `Dictionary` objects in this repo. The class extends `Resource` while sharing an API with Godot's `Dictionary` object.
  - `DictionaryResource` - This class provides most of the functionality for this plugin. Extends `BasicDictionaryResource` and provides the in-editor type hinting, making these dictionaries "type safe".
